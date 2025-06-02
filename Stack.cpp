@@ -31,7 +31,7 @@ int Stack::pop() {
     if (isEmpty())
         throw underflow_error("Stack is empty");
     this->top--;
-    return this->elements[this->top + 1];
+    return this->elements[this->top];
 }
 
 void Stack::printStack() {
