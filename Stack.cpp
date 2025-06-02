@@ -1,0 +1,44 @@
+#include <iostream>
+#include "Stack.h"
+
+#include <stack>
+
+using namespace std;
+
+
+bool Stack::isEmpty() {
+    return this->top == 0;
+}
+
+bool Stack::isFull() {
+    return this->top == SIZE;
+}
+
+int Stack::peek() {
+    if (isEmpty())
+        throw underflow_error("Stack is empty");
+    return this->elements[this->top - 1];
+}
+
+void Stack::push(int x) {
+    if (isFull())
+        throw overflow_error("Stack is full");
+    this->elements[this->top] = x;
+    this->top++;
+}
+
+int Stack::pop() {
+    if (isEmpty())
+        throw underflow_error("Stack is empty");
+    this->top--;
+    return this->elements[this->top + 1];
+}
+
+void Stack::printStack() {
+    cout << "STACK(" << this->top << ")" << endl;
+    cout << "==========TOPO===========" << endl;
+    for (int i = this->top - 1; i >= 0; i--) {
+        cout << "[" << this->elements[i] << "]" << endl;
+    }
+    cout << "=========BASE============" << endl;
+}
