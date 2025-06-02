@@ -37,6 +37,10 @@ int main() {
                 stack.printStack();
                 break;
             }
+            case 5: {
+                cout << "Até mais!" << endl;
+                break;
+            }
             default: {
                 cout << "Opção invalida" << endl;
                 break;
