@@ -1,10 +1,10 @@
-# 🧱 Data Structures - Stack in C++
+# 🧱 Data Structures - in C++
 
-## 📚 Description
+## 📚 Stack
 
 This project implements the **Stack** data structure in C++, using fundamental programming concepts such as pointers, classes, and encapsulation. The stack follows the **LIFO (Last In, First Out)** principle, where the last element inserted is the first one to be removed.
 
-## 🚀 Features
+## 🚀 Functions
 
 - `push(int x)` – Insert an element at the top of the stack
 - `pop()` – Remove the top element
