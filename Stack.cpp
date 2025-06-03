@@ -10,6 +10,11 @@ Stack::Stack() {
     this->elements = new int[10];
 }
 
+Stack::~Stack() {
+    delete[] this->elements;
+}
+
+
 
 bool Stack::isEmpty() {
     return this->top == 0;
