@@ -5,6 +5,11 @@
 
 using namespace std;
 
+Stack::Stack() {
+    top = -1;
+    this->elements = new int[10];
+}
+
 
 bool Stack::isEmpty() {
     return this->top == 0;

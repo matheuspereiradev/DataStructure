@@ -5,12 +5,13 @@
 
 class Stack {
 private:
-    int top = 0;
-    int elements[SIZE] = {};
+    int top;
+    int* elements;
 
 
 public:
-
+    Stack();
+    ~Stack();
     void push(int x);
     int pop();
     int peek();
