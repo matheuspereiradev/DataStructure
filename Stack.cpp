@@ -1,8 +1,6 @@
 #include <iostream>
 #include "Stack.h"
 
-#include <stack>
-
 using namespace std;
 
 Stack::Stack() {
@@ -13,7 +11,6 @@ Stack::Stack() {
 Stack::~Stack() {
     delete[] this->elements;
 }
-
 
 
 bool Stack::isEmpty() {
