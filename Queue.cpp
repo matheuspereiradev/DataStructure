@@ -24,18 +24,21 @@ bool Queue::isEmpty() {
     return this->start == this->end;
 }
 
+bool Queue::isFull() {
+    return this->end - this->start == SIZE;
+}
+
+int Queue::size() {
+    return this->end - this->start;
+}
+
 int Queue::dequeue() {
     if (isEmpty()) {
         throw "Queue is empty";
     }
 
-    if (this->start == SIZE - 1) {
-        this->start = 0;
-        return this->elements[SIZE - 1];
-    }
-
-    this->start++;
-    return this->elements[this->start - 1];
+    this->start ++;
+    return elements[(start - 1) % SIZE];
 }
 
 void Queue::enqueue(int item) {
@@ -43,25 +46,10 @@ void Queue::enqueue(int item) {
         throw "Queue is fully";
     }
 
-    if (this->end + 1 == SIZE - 1) {
-        this->end = 0;
-    }
-
-    this->elements[this->end] = item;
+    this->elements[this->end % SIZE] = item;
     this->end++;
 }
 
-bool Queue::isFull() {
-    if (this->start == 0) {
-        return this->end == SIZE - 1;
-    }
-
-    return this->start - 1 == this->end;
-}
-
-int Queue::size() {
-    return 0;
-}
 
 void Queue::printQueue() {
     cout << "=========ON MEMORY========" << endl;
@@ -70,8 +58,13 @@ void Queue::printQueue() {
         cout << this->elements[i] << " ";
     }
     cout << "]" << endl;
-    cout << "START =>" << this->start << endl;
-    cout << "END =>" << this->end << endl;
+    cout << "START =>" << this->start << "(" << this->start % SIZE << ")" << endl;
+    cout << "END =>" << this->end << "(" << this->end % SIZE << ")" << endl;
     cout << "=========ON MEMORY========" << endl;
 
+    cout << "[";
+    for (int i = this->start; i < this->end; i++) {
+        cout << this->elements[i % SIZE] << " ";
+    }
+    cout << "]" << endl;
 }

@@ -5,4 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Pilha main.cpp
         Stack.cpp
-        Stack.h)
+        Stack.h
+        Queue.cpp
+        Queue.h
+)
