@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Queue.h"
 #include "Stack.h"
+#include "LinkedList.h"
 
 using namespace std;
 
@@ -8,12 +9,105 @@ void testQueue();
 
 void testStack();
 
+void testLinkedList();
+
 
 int main() {
-    testQueue();
+    testLinkedList();
     return 0;
 }
 
+void testLinkedList() {
+    int op = 0;
+    LinkedList list;
+    cout << "===== Vamos testar a LinkedList =====" << endl;
+
+    do {
+        cout << "\nOPÇÕES" << endl;
+        cout << "1 - ADICIONAR ELEMENTO" << endl;
+        cout << "2 - REMOVER ELEMENTO" << endl;
+        cout << "3 - EXIBIR ELEMENTO POR ÍNDICE" << endl;
+        cout << "4 - EXIBIR TODOS ELEMENTOS" << endl;
+        cout << "5 - TAMANHO DA LISTA" << endl;
+        cout << "6 - PRIMEIRO ELEMENTO" << endl;
+        cout << "7 - ÚLTIMO ELEMENTO" << endl;
+        cout << "8 - SAIR" << endl;
+        cout << "Escolha: ";
+        cin >> op;
+
+        switch (op) {
+            case 1: {
+                int valor, indice;
+                cout << "Valor a adicionar: ";
+                cin >> valor;
+                cout << "Índice (ou -1 para final): ";
+                cin >> indice;
+                try {
+                    list.add(valor, indice);
+                    cout << "Elemento adicionado!" << endl;
+                } catch (const exception &e) {
+                    cout << "Erro: " << e.what() << endl;
+                }
+                break;
+            }
+            case 2: {
+                int indice;
+                cout << "Índice a remover (ou -1 para último): ";
+                cin >> indice;
+                try {
+                    list.remove(indice);
+                    cout << "Elemento removido!" << endl;
+                } catch (const exception &e) {
+                    cout << "Erro: " << e.what() << endl;
+                }
+                break;
+            }
+            case 3: {
+                int indice;
+                cout << "Índice do elemento: ";
+                cin >> indice;
+                try {
+                    cout << "Elemento: " << list.get(indice) << endl;
+                } catch (const exception &e) {
+                    cout << "Erro: " << e.what() << endl;
+                }
+                break;
+            }
+            case 4: {
+                list.print();
+                break;
+            }
+            case 5: {
+                cout << "Tamanho: " << list.getSize() << endl;
+                break;
+            }
+            case 6: {
+                try {
+                    cout << "Primeiro: " << list.getFirst() << endl;
+                } catch (const exception &e) {
+                    cout << "Erro: " << e.what() << endl;
+                }
+                break;
+            }
+            case 7: {
+                try {
+                    cout << "Último: " << list.getLast() << endl;
+                } catch (const exception &e) {
+                    cout << "Erro: " << e.what() << endl;
+                }
+                break;
+            }
+            case 8: {
+                cout << "Até mais!" << endl;
+                break;
+            }
+            default: {
+                cout << "Opção inválida!" << endl;
+                break;
+            }
+        }
+    } while (op != 8);
+}
 
 void testQueue() {
     int op = 0;
